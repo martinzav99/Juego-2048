@@ -8,53 +8,72 @@ import java.util.Random;
 
 public class Tablero 
 {
-	int [][] matriz;
+	Celda [][] matriz;
 	
 	public Tablero() 
 	{
-		matriz = new int [4][4];       
+		matriz = new Celda[4][4];
+		
+		for (int i = 0 ; i< matriz.length;i++)
+			for (int j = 0 ; i< matriz[i].length;j++)
+				matriz[i][j] = new Celda();
 	}
 	
-	public void primerSpawn()
-	{
-		
+	public Celda[][] getMatriz() {
+		return matriz;
 	}
-	
-	public void noSePuedeMover() 
+
+	public void setMatriz(Celda[][] matriz) {
+		this.matriz = matriz;
+	}
+
+	public void ApareceOtro2()
 	{
-		
+				
 	}
 	
 	public boolean gameOver()
 	{
 		return true;
 	}
+	
+	public void reiniciar() 
+	{
+		
+	}
 		
 	private void moverTodoDerecha() 
 	{
-
-		
+		moviminetoHorizontal();
 	}
 
 	private void moverTodoIzquierda() 
 	{
-
-		
+		moviminetoHorizontal();
 	}
 
 	private void moverTodoAbajo() 
 	{
-
+		moviminetoVertical();
 		
 	}
 
 	private void moverTodoArriba() 
 	{
-
-		
+		moviminetoVertical();
 	}
 
 	
+	private void moviminetoHorizontal() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private void moviminetoVertical() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	public void keyTyped(KeyEvent event) 
 	{

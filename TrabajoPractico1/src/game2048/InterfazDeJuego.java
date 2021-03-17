@@ -70,15 +70,14 @@ public class InterfazDeJuego {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		CodigoNegocio MatrizPrincipal = new CodigoNegocio();
 			
-		textField = new JTextField("2");
+		textField = new JTextField();
 		textField.setEditable(false);
 		textField.setBounds(34, 49, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField(Integer.toString(MatrizPrincipal.dos_o_Cuatro()));
+		textField_1 = new JTextField();
 		textField_1.setEditable(false);
 		textField_1.setBounds(130, 49, 86, 20);
 		textField_1.setColumns(10);

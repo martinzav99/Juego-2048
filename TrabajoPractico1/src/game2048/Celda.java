@@ -8,15 +8,33 @@ public class Celda
 	{
 		valor =0;
 	}
-
+	
+	public Celda(int nuevoValor)
+	{
+		valor = nuevoValor;
+	}
+	
+	public boolean estaVacio() 
+	{
+		if (valor==0) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	
 	public Integer getValor() 
 	{
 		return valor;
 	}
 
-	public void setValor(Integer nuevoValor) 
+	public void setValor(Integer valor) 
 	{
-		valor = nuevoValor;
+		this.valor = valor;
 	}
 
 	

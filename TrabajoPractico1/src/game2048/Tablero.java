@@ -9,8 +9,7 @@ import java.util.Random;
 public class Tablero 
 {
 	Celda [][] matriz;
-	int borde =0;
-	int grilla=0;
+	int tamanoDeMatriz = 4;
 	
 	
 	public Tablero() 
@@ -66,41 +65,61 @@ public class Tablero
 		
 	private void moverTodoDerecha() 
 	{
-		moviminetoHorizontal();
+
 	}
 
 	private void moverTodoIzquierda() 
 	{
-		moviminetoHorizontal();
+		
 	}
 
 	private void moverTodoAbajo() 
 	{
-		moviminetoVertical(1,1,"asd");
-		
+		int borde =tamanoDeMatriz-1 ;
+		for (int columna =0 ; columna < tamanoDeMatriz;columna++) 
+		{
+			for (int fila = tamanoDeMatriz-1 ; fila >=0 ; fila--) 
+			{
+				if (matriz[fila][columna].estaOcupado()) 
+				{
+					if (matriz[fila][columna]!=matriz[borde][columna]) 
+					{
+						if (matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor() 
+								|| matriz[fila+1][columna].estaVacio() ) 
+						{
+							int suma = matriz[fila+1][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[fila+1][columna].setValor(suma);
+							matriz[fila][columna].setValor(0);
+						}
+					}
+				}	
+			}
+		}
 	}
 
 	private void moverTodoArriba() 
 	{
-		for (int i =0; i<grilla ;i++) 
+		int borde = 0;
+		for (int columna =0; columna<tamanoDeMatriz ;columna++) 
 		{
-			borde =0;
-			for (int j=0 ; j<grilla ; j++)
-				if (matriz[j][i].estaVacio() == false)
-					moviminetoVertical(j,i,"arriba");
+			for (int fila=tamanoDeMatriz ; fila<0 ; fila++) 
+			{
+				if (matriz[fila][columna].estaOcupado()) 
+				{
+					if (matriz[fila][columna]!=matriz[borde][columna]) 
+					{
+						if (matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor() 
+															|| matriz[fila-1][columna].estaVacio() ) 
+						{
+							int suma = matriz[fila-1][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[fila-1][columna].setValor(suma);
+							matriz[fila][columna].setValor(0);
+						}
+					}
+				}
+			}				
 		}
 	}	
-	
-	private void moviminetoHorizontal() 
-	{
-		
-		
-	}
-	
-	private void moviminetoVertical(int fila , int columna , String direccion) 
-	{
-		
-	}
 
 	
 	// PASARLO AL INTERFAZ PERO NO SE DONDE 

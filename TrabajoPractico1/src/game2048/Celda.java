@@ -27,6 +27,17 @@ public class Celda
 		
 	}
 	
+	public  boolean estaOcupado() {
+		if (valor!=0) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	public Integer getValor() 
 	{
 		return valor;
@@ -36,6 +47,8 @@ public class Celda
 	{
 		this.valor = valor;
 	}
+
+	
 
 	
 }

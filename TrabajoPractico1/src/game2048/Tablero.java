@@ -1,10 +1,6 @@
 package game2048;
 
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class Tablero 
 {
@@ -58,19 +54,53 @@ public class Tablero
 		return true;
 	}
 	
-	public void reiniciar() 
-	{
-		
-	}
 		
 	private void moverTodoDerecha() 
 	{
-
+		int borde =tamanoDeMatriz-1;
+		for (int fila =0 ; fila < tamanoDeMatriz ; fila++)
+		{
+			for (int columna = tamanoDeMatriz-1; columna >= 0 ;columna --)
+			{
+				if (matriz[fila][columna].estaOcupado())
+				{
+					if (matriz[fila][columna]!=matriz[fila][borde])
+					{
+						if (matriz[fila][columna].getValor()== matriz[fila][columna+1].getValor() || 
+								matriz[fila][columna+1].estaVacio())
+						{
+							int suma = matriz[fila][columna].getValor() + matriz[fila][columna+1].getValor();
+							matriz[fila][columna+1].setValor(suma);
+							matriz[fila][columna].setValor(0);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	private void moverTodoIzquierda() 
 	{
-		
+		int borde =0 ;
+		for (int fila = 0 ; fila < tamanoDeMatriz ;fila++)
+		{
+			for (int columna = 0 ; columna < tamanoDeMatriz ;columna++)
+			{
+				if (matriz[fila][columna].estaOcupado())
+				{
+					if (matriz[fila][columna]!=matriz[fila][borde])
+					{
+						if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor()
+								|| matriz[fila][columna-1].estaVacio()) 
+						{
+							int suma = matriz[fila][columna].getValor() + matriz[fila][columna-1].getValor();
+							matriz[fila-1][columna].setValor(suma);
+							matriz[fila][columna].setValor(0);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	private void moverTodoAbajo() 
@@ -84,7 +114,7 @@ public class Tablero
 				{
 					if (matriz[fila][columna]!=matriz[borde][columna]) 
 					{
-						if (matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor() 
+						if (matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor()
 								|| matriz[fila+1][columna].estaVacio() ) 
 						{
 							int suma = matriz[fila+1][columna].getValor() + matriz[fila][columna].getValor();
@@ -94,6 +124,7 @@ public class Tablero
 					}
 				}	
 			}
+			
 		}
 	}
 

@@ -7,13 +7,13 @@ public class Tablero
 	Celda [][] matriz;
 	int tamanoDeMatriz = 4;
 	
-	
+ 
 	public Tablero() 
 	{
 		matriz = new Celda[4][4];
 		
 		for (int i = 0 ; i< matriz.length;i++)
-			for (int j = 0 ; i< matriz[i].length;j++)
+			for (int j = 0 ; j<matriz[i].length;j++)
 				matriz[i][j] = new Celda();
 	}
 	

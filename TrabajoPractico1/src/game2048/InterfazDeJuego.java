@@ -10,22 +10,22 @@ import javax.swing.JTable;
 public class InterfazDeJuego {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
+	private JTextField fila0columna0;
+	private JTextField fila0columna1;
+	private JTextField fila0columna2;
+	private JTextField fila0columna3;
+	private JTextField fila1columna0;
+	private JTextField fila2columna0;
+	private JTextField fila3columna0;
+	private JTextField fila1columna1;
+	private JTextField fila2columna1;
+	private JTextField fila3columna1;
+	private JTextField fila1columna2;
+	private JTextField fila2columna2;
+	private JTextField fila3columna2;
+	private JTextField fila1columna3;
+	private JTextField fila2columna3;
+	private JTextField fila3columna3;
 
 	/**
 	 * Launch the application.
@@ -68,106 +68,124 @@ public class InterfazDeJuego {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Tablero tablero = new Tablero();
 		frame.getContentPane().setLayout(null);
-		
 			
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(34, 49, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBounds(130, 49, 86, 20);
-		textField_1.setColumns(10);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(226, 49, 86, 20);
-		textField_2.setColumns(10);
-		frame.getContentPane().add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(322, 49, 86, 20);
-		textField_3.setColumns(10);
-		frame.getContentPane().add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		textField_4.setBounds(34, 80, 86, 20);
-		textField_4.setColumns(10);
-		frame.getContentPane().add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		textField_5.setBounds(34, 111, 86, 20);
-		textField_5.setColumns(10);
-		frame.getContentPane().add(textField_5);
-		
-		textField_6 = new JTextField();
-		textField_6.setEditable(false);
-		textField_6.setBounds(34, 142, 86, 20);
-		textField_6.setColumns(10);
-		frame.getContentPane().add(textField_6);
-		
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		textField_7.setBounds(130, 80, 86, 20);
-		textField_7.setColumns(10);
-		frame.getContentPane().add(textField_7);
-		
-		textField_8 = new JTextField();
-		textField_8.setEditable(false);
-		textField_8.setBounds(130, 111, 86, 20);
-		textField_8.setColumns(10);
-		frame.getContentPane().add(textField_8);
-		
-		textField_9 = new JTextField();
-		textField_9.setEditable(false);
-		textField_9.setBounds(130, 142, 86, 20);
-		textField_9.setColumns(10);
-		frame.getContentPane().add(textField_9);
-		
-		textField_10 = new JTextField();
-		textField_10.setEditable(false);
-		textField_10.setBounds(226, 80, 86, 20);
-		textField_10.setColumns(10);
-		frame.getContentPane().add(textField_10);
-		
-		textField_11 = new JTextField();
-		textField_11.setEditable(false);
-		textField_11.setBounds(226, 111, 86, 20);
-		textField_11.setColumns(10);
-		frame.getContentPane().add(textField_11);
-		
-		textField_12 = new JTextField();
-		textField_12.setEditable(false);
-		textField_12.setBounds(226, 142, 86, 20);
-		textField_12.setColumns(10);
-		frame.getContentPane().add(textField_12);
-		
-		textField_13 = new JTextField();
-		textField_13.setEditable(false);
-		textField_13.setBounds(322, 80, 86, 20);
-		textField_13.setColumns(10);
-		frame.getContentPane().add(textField_13);
-		
-		textField_14 = new JTextField();
-		textField_14.setEditable(false);
-		textField_14.setBounds(322, 111, 86, 20);
-		textField_14.setColumns(10);
-		frame.getContentPane().add(textField_14);
-		
-		textField_15 = new JTextField();
-		textField_15.setEditable(false);
-		textField_15.setBounds(322, 142, 86, 20);
-		textField_15.setColumns(10);
-		frame.getContentPane().add(textField_15);
+		fila0columna0 = new JTextField();
+		fila0columna0.setBounds(34, 49, 86, 20);
+		fila0columna0.setEditable(false);
+		frame.getContentPane().add(fila0columna0);
+		fila0columna0.setColumns(10);
+		fila0columna0.setText(tablero.matriz[0][0].getValor().toString());
 		
 		
+		fila0columna1 = new JTextField();
+		fila0columna1.setBounds(130, 49, 86, 20);
+		fila0columna1.setEditable(false);
+		fila0columna1.setColumns(10);
+		frame.getContentPane().add(fila0columna1);
+		fila0columna1.setText(tablero.matriz[0][1].getValor().toString());
+		
+		fila0columna2 = new JTextField();
+		fila0columna2.setBounds(226, 49, 86, 20);
+		fila0columna2.setEditable(false);
+		fila0columna2.setColumns(10);
+		frame.getContentPane().add(fila0columna2);
+		fila0columna2.setText(tablero.matriz[0][2].getValor().toString());
+		
+		fila0columna3 = new JTextField();
+		fila0columna3.setBounds(322, 49, 86, 20);
+		fila0columna3.setEditable(false);
+		fila0columna3.setColumns(10);
+		frame.getContentPane().add(fila0columna3);
+		fila0columna3.setText(tablero.matriz[0][3].getValor().toString());
+		
+		fila1columna0 = new JTextField();
+		fila1columna0.setBounds(34, 80, 86, 20);
+		fila1columna0.setEditable(false);
+		fila1columna0.setColumns(10);
+		frame.getContentPane().add(fila1columna0);
+		fila1columna0.setText(tablero.matriz[1][0].getValor().toString());
+		
+		fila2columna0 = new JTextField();
+		fila2columna0.setBounds(34, 111, 86, 20);
+		fila2columna0.setEditable(false);
+		fila2columna0.setColumns(10);
+		frame.getContentPane().add(fila2columna0);
+		fila2columna0.setText(tablero.matriz[2][0].getValor().toString());
+		
+		fila3columna0 = new JTextField();
+		fila3columna0.setBounds(34, 142, 86, 20);
+		fila3columna0.setEditable(false);
+		fila3columna0.setColumns(10);
+		frame.getContentPane().add(fila3columna0);
+		fila3columna0.setText(tablero.matriz[3][0].getValor().toString());
+		
+		fila1columna1 = new JTextField();
+		fila1columna1.setBounds(130, 80, 86, 20);
+		fila1columna1.setEditable(false);
+		fila1columna1.setColumns(10);
+		frame.getContentPane().add(fila1columna1);
+		fila1columna1.setText(tablero.matriz[1][1].getValor().toString());
+		
+		fila2columna1 = new JTextField();
+		fila2columna1.setBounds(130, 111, 86, 20);
+		fila2columna1.setEditable(false);
+		fila2columna1.setColumns(10);
+		frame.getContentPane().add(fila2columna1);
+		fila2columna1.setText(tablero.matriz[2][1].getValor().toString());
+		
+		fila3columna1 = new JTextField();
+		fila3columna1.setBounds(130, 142, 86, 20);
+		fila3columna1.setEditable(false);
+		fila3columna1.setColumns(10);
+		frame.getContentPane().add(fila3columna1);
+		fila3columna1.setText(tablero.matriz[3][1].getValor().toString());
+		
+		fila1columna2 = new JTextField();
+		fila1columna2.setBounds(226, 80, 86, 20);
+		fila1columna2.setEditable(false);
+		fila1columna2.setColumns(10);
+		frame.getContentPane().add(fila1columna2);
+		fila1columna2.setText(tablero.matriz[1][2].getValor().toString());
+		
+		fila2columna2 = new JTextField();
+		fila2columna2.setBounds(226, 111, 86, 20);
+		fila2columna2.setEditable(false);
+		fila2columna2.setColumns(10);
+		frame.getContentPane().add(fila2columna2);
+		fila2columna2.setText(tablero.matriz[2][2].getValor().toString());
+		
+		fila3columna2 = new JTextField();
+		fila3columna2.setBounds(226, 142, 86, 20);
+		fila3columna2.setEditable(false);
+		fila3columna2.setColumns(10);
+		frame.getContentPane().add(fila3columna2);
+		fila3columna2.setText(tablero.matriz[3][2].getValor().toString());
+		
+		fila1columna3 = new JTextField();
+		fila1columna3.setBounds(322, 80, 86, 20);
+		fila1columna3.setEditable(false);
+		fila1columna3.setColumns(10);
+		frame.getContentPane().add(fila1columna3);
+		fila1columna3.setText(tablero.matriz[1][3].getValor().toString());
+		
+		fila2columna3 = new JTextField();
+		fila2columna3.setBounds(322, 111, 86, 20);
+		fila2columna3.setEditable(false);
+		fila2columna3.setColumns(10);
+		frame.getContentPane().add(fila2columna3);
+		fila2columna3.setText(tablero.matriz[2][3].getValor().toString());
+		
+		fila3columna3 = new JTextField();
+		fila3columna3.setBounds(322, 142, 86, 20);
+		fila3columna3.setEditable(false);
+		fila3columna3.setColumns(10);
+		frame.getContentPane().add(fila3columna3);
+		fila3columna3.setText(tablero.matriz[3][3].getValor().toString());
+		
+	
 		
 	}
 }

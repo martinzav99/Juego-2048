@@ -57,49 +57,65 @@ public class Tablero
 		
 	public void moverTodoDerecha() 
 	{
-		int borde =tamanoDeMatriz-1;
 		for (int fila =0 ; fila < tamanoDeMatriz ; fila++)
 		{
-			for (int columna = tamanoDeMatriz-1; columna >= 0 ;columna --)
+			ordenarFila(fila,"derecha");
+			/*
+			int borde =tamanoDeMatriz-1;	
+			while (borde>0)
 			{
-				if (matriz[fila][columna].estaOcupado())
+				for (int columna = tamanoDeMatriz-1; columna >= 0 ;columna --)
 				{
-					if (matriz[fila][columna]!=matriz[fila][borde])
+					if (matriz[fila][columna].estaOcupado())
 					{
-						if (matriz[fila][columna].getValor()== matriz[fila][columna+1].getValor() || 
-								matriz[fila][columna+1].estaVacio())
+						if (columna<borde)
 						{
-							int suma = matriz[fila][columna].getValor() + matriz[fila][columna+1].getValor();
-							matriz[fila][columna+1].setValor(suma);
-							matriz[fila][columna].setValor(0);
+							if (matriz[fila][columna].getValor()== matriz[fila][columna+1].getValor() || 
+									matriz[fila][columna+1].estaVacio())
+							{
+								int suma = matriz[fila][columna].getValor() + matriz[fila][columna+1].getValor();
+								matriz[fila][columna+1].setValor(suma);
+								matriz[fila][columna].setValor(0);
+							}
 						}
 					}
 				}
-			}
+				borde--;
+			}*/
 		}
 	}
+	
+	
 
 	public void moverTodoIzquierda() 
 	{
-		int borde =0 ;
+		
 		for (int fila = 0 ; fila < tamanoDeMatriz ;fila++)
 		{
-			for (int columna = 0 ; columna < tamanoDeMatriz ;columna++)
+			ordenarFila(fila,"izquierda");
+			/*
+			int borde =0 ;
+			while (borde<tamanoDeMatriz-1)
 			{
-				if (matriz[fila][columna].estaOcupado())
+				for (int columna = 0 ; columna < tamanoDeMatriz ;columna++)
 				{
-					if (matriz[fila][columna]!=matriz[fila][borde])
+					if (matriz[fila][columna].estaOcupado())
 					{
-						if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor()
-								|| matriz[fila][columna-1].estaVacio()) 
+						if (columna>borde)
 						{
-							int suma = matriz[fila][columna].getValor() + matriz[fila][columna-1].getValor();
-							matriz[fila-1][columna].setValor(suma);
-							matriz[fila][columna].setValor(0);
+							if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor()
+									|| matriz[fila][columna-1].estaVacio()) 
+							{
+								int suma = matriz[fila][columna].getValor() + matriz[fila][columna-1].getValor();
+								matriz[fila][columna-1].setValor(suma);
+								matriz[fila][columna].setValor(0);
+							}
 						}
 					}
 				}
+				borde++;
 			}
+			*/
 		}
 	}
 
@@ -181,6 +197,75 @@ public class Tablero
 			ApareceOtro2();
 			ApareceOtro2();
         }
+	}
+	
+	
+	public void ordenarFila(int fila , String movimiento)
+	{
+		if (movimiento.equals("derecha")) 
+		{
+			int contadorDeCeros=0;
+			boolean seMovioUnValor = false ;
+			for (int columna = tamanoDeMatriz-1; columna >=0 ;columna--)
+			{
+				if (matriz[fila][columna].estaVacio())
+				{
+					contadorDeCeros++;
+				}
+				if (matriz[fila][columna].estaOcupado())
+				{
+					int valor =matriz[fila][columna].getValor();
+					matriz[fila][columna+contadorDeCeros].setValor(valor);
+					
+					if (contadorDeCeros>0) 
+					{
+						seMovioUnValor = true;
+					}
+					if (columna <tamanoDeMatriz-1) 
+					{
+						if (seMovioUnValor)
+						{
+							matriz[fila][columna].setValor(0);
+							seMovioUnValor =false;
+						}
+						columna++;
+					}
+					contadorDeCeros = 0;
+				}
+			}
+		}
+		else
+		{
+			int contadorDeCeros2=0;
+			boolean seMovioAlgunValor = false ;
+			for (int columna = 0; columna < tamanoDeMatriz ;columna++)
+			{
+				if (matriz[fila][columna].estaVacio())
+				{
+					contadorDeCeros2++;
+				}
+				if (matriz[fila][columna].estaOcupado())
+				{
+					int valor =matriz[fila][columna].getValor();
+					matriz[fila][columna-contadorDeCeros2].setValor(valor);
+					if (contadorDeCeros2>0) 
+					{
+						seMovioAlgunValor = true ;
+					}
+					
+					if (columna > 0) 
+					{
+						if (seMovioAlgunValor)
+						{
+							matriz[fila][columna].setValor(0);
+							seMovioAlgunValor = false ;
+						}
+						columna--;
+					}
+					contadorDeCeros2 = 0;
+				}
+			}
+		}
 	}
 	
 }

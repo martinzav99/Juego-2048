@@ -55,7 +55,7 @@ public class Tablero
 	}
 	
 		
-	private void moverTodoDerecha() 
+	public void moverTodoDerecha() 
 	{
 		int borde =tamanoDeMatriz-1;
 		for (int fila =0 ; fila < tamanoDeMatriz ; fila++)
@@ -79,7 +79,7 @@ public class Tablero
 		}
 	}
 
-	private void moverTodoIzquierda() 
+	public void moverTodoIzquierda() 
 	{
 		int borde =0 ;
 		for (int fila = 0 ; fila < tamanoDeMatriz ;fila++)
@@ -103,7 +103,7 @@ public class Tablero
 		}
 	}
 
-	private void moverTodoAbajo() 
+	public void moverTodoAbajo() 
 	{
 		int borde =tamanoDeMatriz-1 ;
 		for (int columna =0 ; columna < tamanoDeMatriz;columna++) 
@@ -128,7 +128,7 @@ public class Tablero
 		}
 	}
 
-	private void moverTodoArriba() 
+	public void moverTodoArriba() 
 	{
 		int borde = 0;
 		for (int columna =0; columna<tamanoDeMatriz ;columna++) 

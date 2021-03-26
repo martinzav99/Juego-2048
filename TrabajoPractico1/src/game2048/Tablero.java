@@ -59,10 +59,7 @@ public class Tablero
 	{
 		for (int fila =0 ; fila < tamanoDeMatriz ; fila++)
 		{
-			ordenarFila(fila,"derecha");
-			/*
-			int borde =tamanoDeMatriz-1;	
-			while (borde>0)
+			int borde =tamanoDeMatriz-1;
 			{
 				for (int columna = tamanoDeMatriz-1; columna >= 0 ;columna --)
 				{
@@ -70,18 +67,22 @@ public class Tablero
 					{
 						if (columna<borde)
 						{
-							if (matriz[fila][columna].getValor()== matriz[fila][columna+1].getValor() || 
-									matriz[fila][columna+1].estaVacio())
+							if (matriz[fila][columna].getValor()== matriz[fila][borde].getValor() || 
+									matriz[fila][borde].estaVacio())
 							{
-								int suma = matriz[fila][columna].getValor() + matriz[fila][columna+1].getValor();
-								matriz[fila][columna+1].setValor(suma);
+								int suma = matriz[fila][columna].getValor() + matriz[fila][borde].getValor();
+								matriz[fila][borde].setValor(suma);
 								matriz[fila][columna].setValor(0);
 							}
+							else
+							{
+								borde--;
+								columna++;
+							}
 						}
-					}
+					}	
 				}
-				borde--;
-			}*/
+			}
 		}
 	}
 	
@@ -92,10 +93,7 @@ public class Tablero
 		
 		for (int fila = 0 ; fila < tamanoDeMatriz ;fila++)
 		{
-			ordenarFila(fila,"izquierda");
-			/*
 			int borde =0 ;
-			while (borde<tamanoDeMatriz-1)
 			{
 				for (int columna = 0 ; columna < tamanoDeMatriz ;columna++)
 				{
@@ -103,39 +101,48 @@ public class Tablero
 					{
 						if (columna>borde)
 						{
-							if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor()
-									|| matriz[fila][columna-1].estaVacio()) 
+							if (matriz[fila][columna].getValor() == matriz[fila][borde].getValor()
+									|| matriz[fila][borde].estaVacio()) 
 							{
-								int suma = matriz[fila][columna].getValor() + matriz[fila][columna-1].getValor();
-								matriz[fila][columna-1].setValor(suma);
+								int suma = matriz[fila][columna].getValor() + matriz[fila][borde].getValor();
+								matriz[fila][borde].setValor(suma);
 								matriz[fila][columna].setValor(0);
+							}
+							else
+							{
+								borde++;
+								columna--;
 							}
 						}
 					}
 				}
-				borde++;
 			}
-			*/
 		}
 	}
 
 	public void moverTodoAbajo() 
 	{
-		int borde =tamanoDeMatriz-1 ;
+		
 		for (int columna =0 ; columna < tamanoDeMatriz;columna++) 
 		{
+			int borde =tamanoDeMatriz-1 ;
 			for (int fila = tamanoDeMatriz-1 ; fila >=0 ; fila--) 
 			{
 				if (matriz[fila][columna].estaOcupado()) 
 				{
-					if (matriz[fila][columna]!=matriz[borde][columna]) 
+					if (fila<borde) 
 					{
-						if (matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor()
-								|| matriz[fila+1][columna].estaVacio() ) 
+						if (matriz[fila][columna].getValor() == matriz[borde][columna].getValor()
+								|| matriz[borde][columna].estaVacio() ) 
 						{
-							int suma = matriz[fila+1][columna].getValor() + matriz[fila][columna].getValor();
-							matriz[fila+1][columna].setValor(suma);
+							int suma = matriz[borde][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[borde][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
+						}
+						else
+						{
+							borde--;
+							fila++;
 						}
 					}
 				}	
@@ -149,18 +156,23 @@ public class Tablero
 		int borde = 0;
 		for (int columna =0; columna<tamanoDeMatriz ;columna++) 
 		{
-			for (int fila=tamanoDeMatriz ; fila<0 ; fila++) 
+			for (int fila=0 ; fila<tamanoDeMatriz ; fila++) 
 			{
 				if (matriz[fila][columna].estaOcupado()) 
 				{
-					if (matriz[fila][columna]!=matriz[borde][columna]) 
+					if (fila>borde) 
 					{
-						if (matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor() 
-															|| matriz[fila-1][columna].estaVacio() ) 
+						if (matriz[fila][columna].getValor() == matriz[borde][columna].getValor() 
+															|| matriz[borde][columna].estaVacio() ) 
 						{
-							int suma = matriz[fila-1][columna].getValor() + matriz[fila][columna].getValor();
-							matriz[fila-1][columna].setValor(suma);
+							int suma = matriz[borde][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[borde][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
+						}
+						else
+						{
+							borde++;
+							fila--;
 						}
 					}
 				}
@@ -199,73 +211,24 @@ public class Tablero
         }
 	}
 	
-	
-	public void ordenarFila(int fila , String movimiento)
+	/*
+	public void ordenarFilaParaDerecha(int fila ,int columna, int puntero)
 	{
-		if (movimiento.equals("derecha")) 
+		Celda celdaPuntero = matriz[fila][puntero];
+		Celda otraCelda = matriz[fila][columna];
+		
+		if (celdaPuntero.estaVacio() || celdaPuntero.getValor() == otraCelda.getValor()) 
 		{
-			int contadorDeCeros=0;
-			boolean seMovioUnValor = false ;
-			for (int columna = tamanoDeMatriz-1; columna >=0 ;columna--)
-			{
-				if (matriz[fila][columna].estaVacio())
-				{
-					contadorDeCeros++;
-				}
-				if (matriz[fila][columna].estaOcupado())
-				{
-					int valor =matriz[fila][columna].getValor();
-					matriz[fila][columna+contadorDeCeros].setValor(valor);
-					
-					if (contadorDeCeros>0) 
-					{
-						seMovioUnValor = true;
-					}
-					if (columna <tamanoDeMatriz-1) 
-					{
-						if (seMovioUnValor)
-						{
-							matriz[fila][columna].setValor(0);
-							seMovioUnValor =false;
-						}
-						columna++;
-					}
-					contadorDeCeros = 0;
-				}
-			}
+			int suma = celdaPuntero.getValor() + otraCelda.getValor();
+			celdaPuntero.setValor(suma);
+			otraCelda.setValor(0);
 		}
 		else
 		{
-			int contadorDeCeros2=0;
-			boolean seMovioAlgunValor = false ;
-			for (int columna = 0; columna < tamanoDeMatriz ;columna++)
-			{
-				if (matriz[fila][columna].estaVacio())
-				{
-					contadorDeCeros2++;
-				}
-				if (matriz[fila][columna].estaOcupado())
-				{
-					int valor =matriz[fila][columna].getValor();
-					matriz[fila][columna-contadorDeCeros2].setValor(valor);
-					if (contadorDeCeros2>0) 
-					{
-						seMovioAlgunValor = true ;
-					}
-					
-					if (columna > 0) 
-					{
-						if (seMovioAlgunValor)
-						{
-							matriz[fila][columna].setValor(0);
-							seMovioAlgunValor = false ;
-						}
-						columna--;
-					}
-					contadorDeCeros2 = 0;
-				}
-			}
+			puntero--;
+			ordenarFilaParaDerecha(fila,columna,puntero);
 		}
 	}
+	*/
 	
 }

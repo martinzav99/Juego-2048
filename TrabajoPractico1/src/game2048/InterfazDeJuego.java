@@ -192,7 +192,7 @@ public class InterfazDeJuego {
 		frame.getContentPane().add(fila3columna3);
 		fila3columna3.setText(tablero.matriz[3][3].getValor().toString());
 		
-		JButton Arriba = new JButton("New button");
+		JButton Arriba = new JButton("Arriba");
 		Arriba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tablero.moverTodoArriba();
@@ -203,7 +203,7 @@ public class InterfazDeJuego {
 		Arriba.setBounds(160, 200, 89, 23);
 		frame.getContentPane().add(Arriba);
 		
-		JButton Abajo = new JButton("New button");
+		JButton Abajo = new JButton("Abajo");
 		Abajo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tablero.moverTodoAbajo();
@@ -214,7 +214,7 @@ public class InterfazDeJuego {
 		Abajo.setBounds(160, 234, 89, 23);
 		frame.getContentPane().add(Abajo);
 		
-		JButton Izquierda = new JButton("New button");
+		JButton Izquierda = new JButton("Izquierda");
 		Izquierda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tablero.moverTodoIzquierda();
@@ -225,7 +225,7 @@ public class InterfazDeJuego {
 		Izquierda.setBounds(61, 214, 89, 23);
 		frame.getContentPane().add(Izquierda);
 		
-		JButton Derecha = new JButton("New button");
+		JButton Derecha = new JButton("Derecha");
 		Derecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tablero.moverTodoDerecha();

@@ -210,25 +210,4 @@ public class Tablero
 			ApareceOtro2();
         }
 	}
-	
-	/*
-	public void ordenarFilaParaDerecha(int fila ,int columna, int puntero)
-	{
-		Celda celdaPuntero = matriz[fila][puntero];
-		Celda otraCelda = matriz[fila][columna];
-		
-		if (celdaPuntero.estaVacio() || celdaPuntero.getValor() == otraCelda.getValor()) 
-		{
-			int suma = celdaPuntero.getValor() + otraCelda.getValor();
-			celdaPuntero.setValor(suma);
-			otraCelda.setValor(0);
-		}
-		else
-		{
-			puntero--;
-			ordenarFilaParaDerecha(fila,columna,puntero);
-		}
-	}
-	*/
-	
 }

@@ -120,7 +120,7 @@ public class Tablero
 								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 								{
 									System.out.println("entro izquierda");
-									bordeIzquierdo--;
+									bordeIzquierdo++;
 									columna--;
 								}
 							}

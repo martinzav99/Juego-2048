@@ -27,23 +27,23 @@ public class Tablero
 
 	public void ApareceOtro2()
 	{
-		Boolean vacio = true ;
-		while(vacio)
+		Boolean faltaColocar2o4 = true ;
+		while(faltaColocar2o4)
 		{
 			int fila = (int) (Math.random()*4);
 			int columna = (int) (Math.random()*4);
-			double x = Math.random();
+			double probabilidad = Math.random();
 			if (matriz[fila][columna].estaVacio()) 
 			{
-				if (x<0.2) 
+				if (probabilidad<0.2) 
 				{
 					matriz[fila][columna]= new Celda(4);
-					vacio = false;
+					faltaColocar2o4 = false;
 				}	
 				else 
 				{
 					matriz[fila][columna]= new Celda(2);
-					vacio = false;
+					faltaColocar2o4 = false;
 				}		
 			}	
 		}
@@ -59,24 +59,24 @@ public class Tablero
 	{
 		for (int fila =0 ; fila < tamanoDeMatriz ; fila++)
 		{
-			int borde =tamanoDeMatriz-1;
+			int bordeDerecho =tamanoDeMatriz-1;
 			{
 				for (int columna = tamanoDeMatriz-1; columna >= 0 ;columna --)
 				{
 					if (matriz[fila][columna].estaOcupado())
 					{
-						if (columna<borde)
+						if (columna<bordeDerecho)
 						{
-							if (matriz[fila][columna].getValor()== matriz[fila][borde].getValor() || 
-									matriz[fila][borde].estaVacio())
+							if (matriz[fila][columna].getValor()== matriz[fila][bordeDerecho].getValor() || 
+									matriz[fila][bordeDerecho].estaVacio())
 							{
-								int suma = matriz[fila][columna].getValor() + matriz[fila][borde].getValor();
-								matriz[fila][borde].setValor(suma);
+								int suma = matriz[fila][columna].getValor() + matriz[fila][bordeDerecho].getValor();
+								matriz[fila][bordeDerecho].setValor(suma);
 								matriz[fila][columna].setValor(0);
 							}
 							else
 							{
-								borde--;
+								bordeDerecho--;
 								columna++;
 							}
 						}
@@ -93,24 +93,24 @@ public class Tablero
 		
 		for (int fila = 0 ; fila < tamanoDeMatriz ;fila++)
 		{
-			int borde =0 ;
+			int bordeIzquierdo =0 ;
 			{
 				for (int columna = 0 ; columna < tamanoDeMatriz ;columna++)
 				{
 					if (matriz[fila][columna].estaOcupado())
 					{
-						if (columna>borde)
+						if (columna>bordeIzquierdo)
 						{
-							if (matriz[fila][columna].getValor() == matriz[fila][borde].getValor()
-									|| matriz[fila][borde].estaVacio()) 
+							if (matriz[fila][columna].getValor() == matriz[fila][bordeIzquierdo].getValor()
+									|| matriz[fila][bordeIzquierdo].estaVacio()) 
 							{
-								int suma = matriz[fila][columna].getValor() + matriz[fila][borde].getValor();
-								matriz[fila][borde].setValor(suma);
+								int suma = matriz[fila][columna].getValor() + matriz[fila][bordeIzquierdo].getValor();
+								matriz[fila][bordeIzquierdo].setValor(suma);
 								matriz[fila][columna].setValor(0);
 							}
 							else
 							{
-								borde++;
+								bordeIzquierdo++;
 								columna--;
 							}
 						}
@@ -125,23 +125,23 @@ public class Tablero
 		
 		for (int columna =0 ; columna < tamanoDeMatriz;columna++) 
 		{
-			int borde =tamanoDeMatriz-1 ;
+			int bordeInferior =tamanoDeMatriz-1 ;
 			for (int fila = tamanoDeMatriz-1 ; fila >=0 ; fila--) 
 			{
 				if (matriz[fila][columna].estaOcupado()) 
 				{
-					if (fila<borde) 
+					if (fila<bordeInferior) 
 					{
-						if (matriz[fila][columna].getValor() == matriz[borde][columna].getValor()
-								|| matriz[borde][columna].estaVacio() ) 
+						if (matriz[fila][columna].getValor() == matriz[bordeInferior][columna].getValor()
+								|| matriz[bordeInferior][columna].estaVacio() ) 
 						{
-							int suma = matriz[borde][columna].getValor() + matriz[fila][columna].getValor();
-							matriz[borde][columna].setValor(suma);
+							int suma = matriz[bordeInferior][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[bordeInferior][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
 						}
 						else
 						{
-							borde--;
+							bordeInferior--;
 							fila++;
 						}
 					}
@@ -153,25 +153,26 @@ public class Tablero
 
 	public void moverTodoArriba() 
 	{
-		int borde = 0;
+		
 		for (int columna =0; columna<tamanoDeMatriz ;columna++) 
 		{
+			int bordeSuperior = 0;
 			for (int fila=0 ; fila<tamanoDeMatriz ; fila++) 
 			{
 				if (matriz[fila][columna].estaOcupado()) 
 				{
-					if (fila>borde) 
+					if (fila>bordeSuperior) 
 					{
-						if (matriz[fila][columna].getValor() == matriz[borde][columna].getValor() 
-															|| matriz[borde][columna].estaVacio() ) 
+						if (matriz[fila][columna].getValor() == matriz[bordeSuperior][columna].getValor() 
+															|| matriz[bordeSuperior][columna].estaVacio() ) 
 						{
-							int suma = matriz[borde][columna].getValor() + matriz[fila][columna].getValor();
-							matriz[borde][columna].setValor(suma);
+							int suma = matriz[bordeSuperior][columna].getValor() + matriz[fila][columna].getValor();
+							matriz[bordeSuperior][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
 						}
 						else
 						{
-							borde++;
+							bordeSuperior++;
 							fila--;
 						}
 					}

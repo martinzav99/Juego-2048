@@ -35,7 +35,7 @@ public class Tablero
 			double probabilidad = Math.random();
 			if (matriz[fila][columna].estaVacio()) 
 			{
-				if (probabilidad<0.2) 
+				if (probabilidad<0.1) 
 				{
 					matriz[fila][columna]= new Celda(4);
 					faltaColocar2o4 = false;
@@ -71,8 +71,16 @@ public class Tablero
 									matriz[fila][bordeDerecho].estaVacio())
 							{
 								int suma = matriz[fila][columna].getValor() + matriz[fila][bordeDerecho].getValor();
+								int auxValorCeldaBorde = matriz[fila][bordeDerecho].getValor();
+								int auxValorOtraCelda = matriz[fila][columna].getValor();
 								matriz[fila][bordeDerecho].setValor(suma);
 								matriz[fila][columna].setValor(0);
+								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
+								{
+									System.out.println("entro derecha");
+									bordeDerecho--;
+									columna++;
+								}
 							}
 							else
 							{
@@ -105,8 +113,16 @@ public class Tablero
 									|| matriz[fila][bordeIzquierdo].estaVacio()) 
 							{
 								int suma = matriz[fila][columna].getValor() + matriz[fila][bordeIzquierdo].getValor();
+								int auxValorCeldaBorde =matriz[fila][bordeIzquierdo].getValor();
+								int auxValorOtraCelda = matriz[fila][columna].getValor();
 								matriz[fila][bordeIzquierdo].setValor(suma);
 								matriz[fila][columna].setValor(0);
+								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
+								{
+									System.out.println("entro izquierda");
+									bordeIzquierdo--;
+									columna--;
+								}
 							}
 							else
 							{
@@ -136,8 +152,16 @@ public class Tablero
 								|| matriz[bordeInferior][columna].estaVacio() ) 
 						{
 							int suma = matriz[bordeInferior][columna].getValor() + matriz[fila][columna].getValor();
+							int auxValorCeldaBorde = matriz[bordeInferior][columna].getValor();
+							int auxValorOtraCelda =matriz[fila][columna].getValor();
 							matriz[bordeInferior][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
+							if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
+							{
+								System.out.println("entro abajo");
+								bordeInferior--;
+								fila++;
+							}
 						}
 						else
 						{
@@ -167,8 +191,16 @@ public class Tablero
 															|| matriz[bordeSuperior][columna].estaVacio() ) 
 						{
 							int suma = matriz[bordeSuperior][columna].getValor() + matriz[fila][columna].getValor();
+							int auxValorCeldaBorde=matriz[bordeSuperior][columna].getValor();
+							int auxValorOtraCelda=matriz[fila][columna].getValor();
 							matriz[bordeSuperior][columna].setValor(suma);
 							matriz[fila][columna].setValor(0);
+							if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
+							{
+								System.out.println("entro arriba");
+								bordeSuperior++;
+								fila--;
+							}
 						}
 						else
 						{

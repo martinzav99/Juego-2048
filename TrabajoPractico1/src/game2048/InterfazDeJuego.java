@@ -3,6 +3,7 @@ package game2048;
 import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import game2048.EscuchaTeclado;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -74,11 +75,14 @@ public class InterfazDeJuego {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 621, 495);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		frame.setFocusable(true);
 		Tablero tablero = new Tablero();
 		tablero.ApareceOtro2();
 		tablero.ApareceOtro2();
 		frame.getContentPane().setLayout(null);
+		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(tablero,this);
+		frame.addKeyListener(escuchaTeclado);
+		
 			
 		fila0columna0 = new JTextField();
 		fila0columna0.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -225,50 +229,6 @@ public class InterfazDeJuego {
 		frame.getContentPane().add(fila3columna3);
 		if(tablero.matriz[3][3].getValor()!=0)
 		fila3columna3.setText(tablero.matriz[3][3].getValor().toString());
-		
-		JButton Arriba = new JButton("Arriba");
-		Arriba.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tablero.moverTodoArriba();
-				tablero.ApareceOtro2();
-				refrescarPantalla(tablero);
-			}
-		});
-		Arriba.setBounds(272, 367, 89, 23);
-		frame.getContentPane().add(Arriba);
-		
-		JButton Abajo = new JButton("Abajo");
-		Abajo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tablero.moverTodoAbajo();
-				tablero.ApareceOtro2();
-				refrescarPantalla(tablero);
-			}
-		});
-		Abajo.setBounds(272, 422, 89, 23);
-		frame.getContentPane().add(Abajo);
-		
-		JButton Izquierda = new JButton("Izquierda");
-		Izquierda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tablero.moverTodoIzquierda();
-				tablero.ApareceOtro2();
-				refrescarPantalla(tablero);
-			}
-		});
-		Izquierda.setBounds(173, 389, 89, 23);
-		frame.getContentPane().add(Izquierda);
-		
-		JButton Derecha = new JButton("Derecha");
-		Derecha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tablero.moverTodoDerecha();
-				tablero.ApareceOtro2();
-				refrescarPantalla(tablero);
-			}
-		});
-		Derecha.setBounds(377, 389, 89, 23);
-		frame.getContentPane().add(Derecha);
 	}
 
 		
@@ -338,7 +298,15 @@ public class InterfazDeJuego {
 			else
 				fila3columna3.setText("");
 				
-		}		
-
-		
+		}
+	
 }
+
+
+			
+			
+		
+
+
+	
+

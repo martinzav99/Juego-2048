@@ -1,6 +1,5 @@
-package game2048;
+package Interfaz;
 import game2048.Tablero;
-import game2048.InterfazDeJuego;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

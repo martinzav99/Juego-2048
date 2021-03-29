@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 
 public class Tablero 
 {
-	Celda [][] matriz;
-	int tamanoDeMatriz = 4;
+	private Celda [][] matriz;
+	private int tamanoDeMatriz = 4;
 	
  
 	public Tablero() 
@@ -285,7 +285,7 @@ public class Tablero
 			}				
 		}
 	}	
-
+	
 	
 	// PASARLO AL INTERFAZ PERO NO SE DONDE 
 	

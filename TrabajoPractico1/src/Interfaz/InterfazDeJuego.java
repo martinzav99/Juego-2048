@@ -1,8 +1,11 @@
 package Interfaz;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import game2048.Celda;
 import game2048.Tablero;
 
 import javax.swing.JFrame;
@@ -13,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JLabel;
 
 public class InterfazDeJuego {
 
@@ -230,17 +234,51 @@ public class InterfazDeJuego {
 		if(tablero.getMatriz()[3][3].getValor()!=0)
 		fila3columna3.setText(tablero.getMatriz()[3][3].getValor().toString());
 	}
-
+		public void asignarColor(Celda celda, JTextField field) {
+			if(celda.getValor()==0)
+				field.setBackground(new Color(255,255,255));
+			if(celda.getValor()==2)
+				field.setBackground(new Color(102, 204, 255));
+			if(celda.getValor()==4)
+				field.setBackground(new Color(204, 153, 255));
+			if(celda.getValor()==8)
+				field.setBackground(new Color(102, 153, 153));
+			if(celda.getValor()==16)
+				field.setBackground(new Color(204, 255, 255));
+			if(celda.getValor()==32)
+				field.setBackground(new Color(51, 255, 255));
+			if(celda.getValor()==64)
+				field.setBackground(new Color(204, 153, 153));
+			if(celda.getValor()==128)
+				field.setBackground(new Color(102, 102, 255));
+			if(celda.getValor()==256)
+				field.setBackground(new Color(204, 0, 255));
+			if(celda.getValor()==512)
+				field.setBackground(new Color(255, 0, 0));
+			if(celda.getValor()==1024)
+				field.setBackground(new Color(255, 0, 153));
+			if(celda.getValor()==2048)
+				field.setBackground(new Color(102, 102, 153));
+		
+		}
 		
 		public void refrescarPantalla(Tablero tablero) {
-			if(tablero.getMatriz()[0][0].getValor()!=0)
+			if(tablero.getMatriz()[0][0].getValor()!=0) {
 			fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());
-			else
+			asignarColor(tablero.getMatriz()[0][0], fila0columna0);
+			}
+			else {
 				fila0columna0.setText("");
-			if(tablero.getMatriz()[0][1].getValor()!=0)
+				asignarColor(tablero.getMatriz()[0][0], fila0columna0);
+				}
+			if(tablero.getMatriz()[0][1].getValor()!=0) {
 			fila0columna1.setText(tablero.getMatriz()[0][1].getValor().toString());
-			else
+			asignarColor(tablero.getMatriz()[0][1], fila0columna1);
+			}
+			else {
 				fila0columna1.setText("");
+				asignarColor(tablero.getMatriz()[0][1], fila0columna1);
+			}
 			if(tablero.getMatriz()[0][2].getValor()!=0)
 			fila0columna2.setText(tablero.getMatriz()[0][2].getValor().toString());
 			else
@@ -299,7 +337,6 @@ public class InterfazDeJuego {
 				fila3columna3.setText("");
 				
 		}
-	
 }
 
 

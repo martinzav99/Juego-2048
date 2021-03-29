@@ -49,10 +49,83 @@ public class Tablero
 		}
 	}
 	
-	public boolean gameOver()
+	public boolean finDeJuego()
 	{
-		return true;
+		boolean sePuedeSumarCeldas = false;
+		
+		for (int fila =0 ; fila < tamanoDeMatriz ;fila ++)
+		{
+			for (int columna =0 ; columna < tamanoDeMatriz ;columna ++)
+			{
+				if (fila ==0 && columna ==0)
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila][columna+1].getValor() ||
+							matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if (fila ==0 && columna ==3)
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor() ||
+							matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if (fila ==3 && columna ==0)
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor() ||
+							matriz[fila][columna].getValor() == matriz[fila][columna+1].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if (fila ==3 && columna ==3)
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor() ||
+							matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if ((fila == 1 && (columna == 1 || columna == 2)) || (fila ==2 && (columna==1 || columna==2)))
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor() ||
+						matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor()||
+						matriz[fila][columna].getValor() == matriz[fila][columna+1].getValor()||
+						matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if ((fila == 0 && (columna == 1 || columna == 2)) || (fila ==3 && (columna==1 || columna==2)))
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila][columna-1].getValor() ||
+						matriz[fila][columna].getValor() == matriz[fila][columna+1].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+				
+				if (( (fila == 1 || fila== 2) && columna == 0) || ((fila == 1 || fila== 2) && columna == 3))
+				{
+					if (matriz[fila][columna].getValor() == matriz[fila-1][columna].getValor() ||
+						matriz[fila][columna].getValor() == matriz[fila+1][columna].getValor())
+					{
+						sePuedeSumarCeldas = true;
+					}
+				}
+			}		
+		}
+		return sePuedeSumarCeldas;
 	}
+	
 	
 		
 	public void moverTodoDerecha() 
@@ -120,7 +193,7 @@ public class Tablero
 								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 								{
 									System.out.println("entro izquierda");
-									bordeIzquierdo++;
+									bordeIzquierdo++; 
 									columna--;
 								}
 							}

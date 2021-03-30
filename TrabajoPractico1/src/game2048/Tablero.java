@@ -12,9 +12,9 @@ public class Tablero
 	{
 		matriz = new Celda[4][4];
 		
-		for (int i = 0 ; i< matriz.length;i++)
-			for (int j = 0 ; j<matriz[i].length;j++)
-				matriz[i][j] = new Celda();
+		for (int fila = 0 ; fila< matriz.length;fila++)
+			for (int columna = 0 ; columna<matriz[fila].length;columna++)
+				matriz[fila][columna] = new Celda();
 	}
 	
 	public Celda[][] getMatriz() {
@@ -24,12 +24,7 @@ public class Tablero
 	public void setMatriz(Celda[][] matriz) {
 		this.matriz = matriz;
 	}
-
 	
-	
-
-	
-		
 	public int getTamanoDeMatriz() {
 		return tamanoDeMatriz;
 	}

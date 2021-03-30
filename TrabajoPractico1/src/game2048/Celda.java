@@ -1,9 +1,10 @@
 package game2048;
 
+
 public class Celda 
 {
 	private Integer valor;
-	
+		
 	public Celda()
 	{
 		valor =0;
@@ -47,8 +48,4 @@ public class Celda
 	{
 		this.valor = valor;
 	}
-
-	
-
-	
 }

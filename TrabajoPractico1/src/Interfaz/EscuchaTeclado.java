@@ -1,4 +1,5 @@
 package Interfaz;
+import game2048.Juego;
 import game2048.Tablero;
 
 import java.awt.event.KeyEvent;
@@ -7,11 +8,11 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 public class EscuchaTeclado implements KeyListener {
-	private Tablero tablero;
 	private InterfazDeJuego interfaz;
+	private Juego juego;
 	
-	public EscuchaTeclado(Tablero tablero, InterfazDeJuego interfaz) {
-		this.tablero = tablero;
+	public EscuchaTeclado(Juego juego, InterfazDeJuego interfaz) {
+		this.juego = juego;
 		this.interfaz = interfaz;
 		
 	}
@@ -24,25 +25,25 @@ public class EscuchaTeclado implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			this.tablero.moverTodoArriba();
-			this.tablero.ApareceOtro2();
-			interfaz.refrescarPantalla(tablero);
+			this.juego.moverTodoArriba();
+			this.juego.ApareceOtro2();
+			interfaz.refrescarPantalla(this.juego.getTablero());
 
 	    }
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			this.tablero.moverTodoAbajo();
-			this.tablero.ApareceOtro2();
-			interfaz.refrescarPantalla(tablero);
+			this.juego.moverTodoAbajo();
+			this.juego.ApareceOtro2();
+			interfaz.refrescarPantalla(this.juego.getTablero());
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			this.tablero.moverTodoIzquierda();
-			this.tablero.ApareceOtro2();
-			interfaz.refrescarPantalla(tablero);
+			this.juego.moverTodoIzquierda();
+			this.juego.ApareceOtro2();
+			interfaz.refrescarPantalla(this.juego.getTablero());
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			this.tablero.moverTodoDerecha();
-			this.tablero.ApareceOtro2();
-			interfaz.refrescarPantalla(tablero);
+			this.juego.moverTodoDerecha();
+			this.juego.ApareceOtro2();
+			interfaz.refrescarPantalla(this.juego.getTablero());
 		}	
 	}
 

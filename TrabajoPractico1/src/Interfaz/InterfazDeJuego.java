@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import game2048.Celda;
+import game2048.Juego;
 import game2048.Tablero;
 
 import javax.swing.JFrame;
@@ -80,11 +81,11 @@ public class InterfazDeJuego {
 		frame.setBounds(100, 100, 621, 495);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setFocusable(true);
-		Tablero tablero = new Tablero();
-		tablero.ApareceOtro2();
-		tablero.ApareceOtro2();
+		Juego juego = new Juego();
+		juego.ApareceOtro2();
+		juego.ApareceOtro2();
 		frame.getContentPane().setLayout(null);
-		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(tablero,this);
+		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(juego,this);
 		frame.addKeyListener(escuchaTeclado);
 		
 			
@@ -94,8 +95,8 @@ public class InterfazDeJuego {
 		fila0columna0.setEditable(false);
 		frame.getContentPane().add(fila0columna0);
 		fila0columna0.setColumns(10);
-		if(tablero.getMatriz()[0][0].getValor()!=0)
-		fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());
+		if(juego.getTablero().getMatriz()[0][0].getValor()!=0)
+		fila0columna0.setText(juego.getTablero().getMatriz()[0][0].getValor().toString());
 		
 		
 		fila0columna1 = new JTextField();
@@ -104,8 +105,8 @@ public class InterfazDeJuego {
 		fila0columna1.setEditable(false);
 		fila0columna1.setColumns(10);
 		frame.getContentPane().add(fila0columna1);
-		if(tablero.getMatriz()[0][1].getValor()!=0)
-		fila0columna1.setText(tablero.getMatriz()[0][1].getValor().toString());
+		if(juego.getTablero().getMatriz()[0][1].getValor()!=0)
+		fila0columna1.setText(juego.getTablero().getMatriz()[0][1].getValor().toString());
 		
 		fila0columna2 = new JTextField();
 		fila0columna2.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -113,8 +114,8 @@ public class InterfazDeJuego {
 		fila0columna2.setEditable(false);
 		fila0columna2.setColumns(10);
 		frame.getContentPane().add(fila0columna2);
-		if(tablero.getMatriz()[0][2].getValor()!=0)
-		fila0columna2.setText(tablero.getMatriz()[0][2].getValor().toString());
+		if(juego.getTablero().getMatriz()[0][2].getValor()!=0)
+		fila0columna2.setText(juego.getTablero().getMatriz()[0][2].getValor().toString());
 		
 		fila0columna3 = new JTextField();
 		fila0columna3.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -122,8 +123,8 @@ public class InterfazDeJuego {
 		fila0columna3.setEditable(false);
 		fila0columna3.setColumns(10);
 		frame.getContentPane().add(fila0columna3);
-		if(tablero.getMatriz()[0][3].getValor()!=0)
-		fila0columna3.setText(tablero.getMatriz()[0][3].getValor().toString());
+		if(juego.getTablero().getMatriz()[0][3].getValor()!=0)
+		fila0columna3.setText(juego.getTablero().getMatriz()[0][3].getValor().toString());
 		
 		fila1columna0 = new JTextField();
 		fila1columna0.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -131,8 +132,8 @@ public class InterfazDeJuego {
 		fila1columna0.setEditable(false);
 		fila1columna0.setColumns(10);
 		frame.getContentPane().add(fila1columna0);
-		if(tablero.getMatriz()[1][0].getValor()!=0)
-		fila1columna0.setText(tablero.getMatriz()[1][0].getValor().toString());
+		if(juego.getTablero().getMatriz()[1][0].getValor()!=0)
+		fila1columna0.setText(juego.getTablero().getMatriz()[1][0].getValor().toString());
 		
 		fila2columna0 = new JTextField();
 		fila2columna0.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -140,8 +141,8 @@ public class InterfazDeJuego {
 		fila2columna0.setEditable(false);
 		fila2columna0.setColumns(10);
 		frame.getContentPane().add(fila2columna0);
-		if(tablero.getMatriz()[2][0].getValor()!=0)
-		fila2columna0.setText(tablero.getMatriz()[2][0].getValor().toString());
+		if(juego.getTablero().getMatriz()[2][0].getValor()!=0)
+		fila2columna0.setText(juego.getTablero().getMatriz()[2][0].getValor().toString());
 		
 		fila3columna0 = new JTextField();
 		fila3columna0.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -149,8 +150,8 @@ public class InterfazDeJuego {
 		fila3columna0.setEditable(false);
 		fila3columna0.setColumns(10);
 		frame.getContentPane().add(fila3columna0);
-		if(tablero.getMatriz()[3][0].getValor()!=0)
-		fila3columna0.setText(tablero.getMatriz()[3][0].getValor().toString());
+		if(juego.getTablero().getMatriz()[3][0].getValor()!=0)
+		fila3columna0.setText(juego.getTablero().getMatriz()[3][0].getValor().toString());
 		
 		fila1columna1 = new JTextField();
 		fila1columna1.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -158,8 +159,8 @@ public class InterfazDeJuego {
 		fila1columna1.setEditable(false);
 		fila1columna1.setColumns(10);
 		frame.getContentPane().add(fila1columna1);
-		if(tablero.getMatriz()[1][1].getValor()!=0)
-		fila1columna1.setText(tablero.getMatriz()[1][1].getValor().toString());
+		if(juego.getTablero().getMatriz()[1][1].getValor()!=0)
+		fila1columna1.setText(juego.getTablero().getMatriz()[1][1].getValor().toString());
 		
 		fila2columna1 = new JTextField();
 		fila2columna1.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -167,8 +168,8 @@ public class InterfazDeJuego {
 		fila2columna1.setEditable(false);
 		fila2columna1.setColumns(10);
 		frame.getContentPane().add(fila2columna1);
-		if(tablero.getMatriz()[2][1].getValor()!=0)
-		fila2columna1.setText(tablero.getMatriz()[2][1].getValor().toString());
+		if(juego.getTablero().getMatriz()[2][1].getValor()!=0)
+		fila2columna1.setText(juego.getTablero().getMatriz()[2][1].getValor().toString());
 		
 		fila3columna1 = new JTextField();
 		fila3columna1.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -176,8 +177,8 @@ public class InterfazDeJuego {
 		fila3columna1.setEditable(false);
 		fila3columna1.setColumns(10);
 		frame.getContentPane().add(fila3columna1);
-		if(tablero.getMatriz()[3][1].getValor()!=0)
-		fila3columna1.setText(tablero.getMatriz()[3][1].getValor().toString());
+		if(juego.getTablero().getMatriz()[3][1].getValor()!=0)
+		fila3columna1.setText(juego.getTablero().getMatriz()[3][1].getValor().toString());
 		
 		fila1columna2 = new JTextField();
 		fila1columna2.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -185,8 +186,8 @@ public class InterfazDeJuego {
 		fila1columna2.setEditable(false);
 		fila1columna2.setColumns(10);
 		frame.getContentPane().add(fila1columna2);
-		if(tablero.getMatriz()[1][2].getValor()!=0)
-		fila1columna2.setText(tablero.getMatriz()[1][2].getValor().toString());
+		if(juego.getTablero().getMatriz()[1][2].getValor()!=0)
+		fila1columna2.setText(juego.getTablero().getMatriz()[1][2].getValor().toString());
 		
 		fila2columna2 = new JTextField();
 		fila2columna2.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -194,8 +195,8 @@ public class InterfazDeJuego {
 		fila2columna2.setEditable(false);
 		fila2columna2.setColumns(10);
 		frame.getContentPane().add(fila2columna2);
-		if(tablero.getMatriz()[2][2].getValor()!=0)
-		fila2columna2.setText(tablero.getMatriz()[2][2].getValor().toString());
+		if(juego.getTablero().getMatriz()[2][2].getValor()!=0)
+		fila2columna2.setText(juego.getTablero().getMatriz()[2][2].getValor().toString());
 		
 		fila3columna2 = new JTextField();
 		fila3columna2.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -203,8 +204,8 @@ public class InterfazDeJuego {
 		fila3columna2.setEditable(false);
 		fila3columna2.setColumns(10);
 		frame.getContentPane().add(fila3columna2);
-		if(tablero.getMatriz()[3][2].getValor()!=0)
-		fila3columna2.setText(tablero.getMatriz()[3][2].getValor().toString());
+		if(juego.getTablero().getMatriz()[3][2].getValor()!=0)
+		fila3columna2.setText(juego.getTablero().getMatriz()[3][2].getValor().toString());
 		
 		fila1columna3 = new JTextField();
 		fila1columna3.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -212,8 +213,8 @@ public class InterfazDeJuego {
 		fila1columna3.setEditable(false);
 		fila1columna3.setColumns(10);
 		frame.getContentPane().add(fila1columna3);
-		if(tablero.getMatriz()[1][3].getValor()!=0)
-		fila1columna3.setText(tablero.getMatriz()[1][3].getValor().toString());
+		if(juego.getTablero().getMatriz()[1][3].getValor()!=0)
+		fila1columna3.setText(juego.getTablero().getMatriz()[1][3].getValor().toString());
 		
 	
 		fila2columna3 = new JTextField();
@@ -222,8 +223,8 @@ public class InterfazDeJuego {
 		fila2columna3.setEditable(false);
 		fila2columna3.setColumns(10);
 		frame.getContentPane().add(fila2columna3);
-		if(tablero.getMatriz()[2][3].getValor()!=0)
-		fila2columna3.setText(tablero.getMatriz()[2][3].getValor().toString());
+		if(juego.getTablero().getMatriz()[2][3].getValor()!=0)
+		fila2columna3.setText(juego.getTablero().getMatriz()[2][3].getValor().toString());
 		
 		fila3columna3 = new JTextField();
 		fila3columna3.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -231,8 +232,8 @@ public class InterfazDeJuego {
 		fila3columna3.setEditable(false);
 		fila3columna3.setColumns(10);
 		frame.getContentPane().add(fila3columna3);
-		if(tablero.getMatriz()[3][3].getValor()!=0)
-		fila3columna3.setText(tablero.getMatriz()[3][3].getValor().toString());
+		if(juego.getTablero().getMatriz()[3][3].getValor()!=0)
+		fila3columna3.setText(juego.getTablero().getMatriz()[3][3].getValor().toString());
 	}
 		public void asignarColor(Celda celda, JTextField field) {
 			if(celda.getValor()==0)

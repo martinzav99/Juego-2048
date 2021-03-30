@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import game2048.Celda;
 import game2048.Juego;
@@ -87,8 +85,12 @@ public class InterfazDeJuego {
 		frame.getContentPane().setLayout(null);
 		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(juego,this);
 		frame.addKeyListener(escuchaTeclado);
-		
-			
+		dibujarCeldas();
+		refrescarPantalla(juego.getTablero());
+	}
+	
+	public void dibujarCeldas()
+	{
 		fila0columna0 = new JTextField();
 		fila0columna0.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		fila0columna0.setBounds(81, 35, 86, 60);
@@ -200,191 +202,192 @@ public class InterfazDeJuego {
 		fila3columna3.setEditable(false);
 		fila3columna3.setColumns(10);
 		frame.getContentPane().add(fila3columna3);
-		
-		refrescarPantalla(juego.getTablero());
 	}
-		public void asignarColor(Celda celda, JTextField field) {
-			if(celda.getValor()==0)
-				field.setBackground(new Color(255,255,255));
-			if(celda.getValor()==2)
-				field.setBackground(new Color(102, 204, 255));
-			if(celda.getValor()==4)
-				field.setBackground(new Color(204, 153, 255));
-			if(celda.getValor()==8)
-				field.setBackground(new Color(102, 153, 153));
-			if(celda.getValor()==16)
-				field.setBackground(new Color(204, 255, 255));
-			if(celda.getValor()==32)
-				field.setBackground(new Color(51, 255, 255));
-			if(celda.getValor()==64)
-				field.setBackground(new Color(204, 153, 153));
-			if(celda.getValor()==128)
-				field.setBackground(new Color(102, 102, 255));
-			if(celda.getValor()==256)
-				field.setBackground(new Color(204, 0, 255));
-			if(celda.getValor()==512)
-				field.setBackground(new Color(255, 0, 0));
-			if(celda.getValor()==1024)
-				field.setBackground(new Color(255, 0, 153));
-			if(celda.getValor()==2048)
-				field.setBackground(new Color(102, 102, 153));
-		
+
+	public void asignarColor(Celda celda, JTextField field) 
+	{
+		if(celda.getValor()==0)
+			field.setBackground(new Color(255,255,255));
+		if(celda.getValor()==2)
+			field.setBackground(new Color(102, 204, 255));
+		if(celda.getValor()==4)
+			field.setBackground(new Color(204, 153, 255));
+		if(celda.getValor()==8)
+			field.setBackground(new Color(102, 153, 153));
+		if(celda.getValor()==16)
+			field.setBackground(new Color(204, 255, 255));
+		if(celda.getValor()==32)
+			field.setBackground(new Color(51, 255, 255));
+		if(celda.getValor()==64)
+			field.setBackground(new Color(204, 153, 153));
+		if(celda.getValor()==128)
+			field.setBackground(new Color(102, 102, 255));
+		if(celda.getValor()==256)
+			field.setBackground(new Color(204, 0, 255));
+		if(celda.getValor()==512)
+			field.setBackground(new Color(255, 0, 0));
+		if(celda.getValor()==1024)
+			field.setBackground(new Color(255, 0, 153));
+		if(celda.getValor()==2048)
+			field.setBackground(new Color(102, 102, 153));
+
+	}
+
+	public void refrescarPantalla(Tablero tablero) 
+	{
+		////FILA 0
+		if(tablero.getMatriz()[0][0].getValor()!=0) {
+			fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());
+			asignarColor(tablero.getMatriz()[0][0], fila0columna0);
 		}
-		
-		public void refrescarPantalla(Tablero tablero) {
-			////FILA 0
-			if(tablero.getMatriz()[0][0].getValor()!=0) {
-				fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());
-				asignarColor(tablero.getMatriz()[0][0], fila0columna0);
-			}
-			else {
-				fila0columna0.setText("");
-				asignarColor(tablero.getMatriz()[0][0], fila0columna0);
-			}
-			
-			if(tablero.getMatriz()[0][1].getValor()!=0) {
-				fila0columna1.setText(tablero.getMatriz()[0][1].getValor().toString());
-				asignarColor(tablero.getMatriz()[0][1], fila0columna1);
-			}
-			else {
-				fila0columna1.setText("");
-				asignarColor(tablero.getMatriz()[0][1], fila0columna1);
-			}
-			
-			if(tablero.getMatriz()[0][2].getValor()!=0) {
-				fila0columna2.setText(tablero.getMatriz()[0][2].getValor().toString());
-				asignarColor(tablero.getMatriz()[0][2], fila0columna2);
-			}
-			else {
-				fila0columna2.setText("");
-				asignarColor(tablero.getMatriz()[0][2], fila0columna2);
-			}
-			
-			
-			if(tablero.getMatriz()[0][3].getValor()!=0) {
-				fila0columna3.setText(tablero.getMatriz()[0][3].getValor().toString());
-				asignarColor(tablero.getMatriz()[0][3], fila0columna3);
-			}
-			else {
-				fila0columna3.setText("");
-				asignarColor(tablero.getMatriz()[0][3], fila0columna3);
-			}
-			
+		else {
+			fila0columna0.setText("");
+			asignarColor(tablero.getMatriz()[0][0], fila0columna0);
+		}
+
+		if(tablero.getMatriz()[0][1].getValor()!=0) {
+			fila0columna1.setText(tablero.getMatriz()[0][1].getValor().toString());
+			asignarColor(tablero.getMatriz()[0][1], fila0columna1);
+		}
+		else {
+			fila0columna1.setText("");
+			asignarColor(tablero.getMatriz()[0][1], fila0columna1);
+		}
+
+		if(tablero.getMatriz()[0][2].getValor()!=0) {
+			fila0columna2.setText(tablero.getMatriz()[0][2].getValor().toString());
+			asignarColor(tablero.getMatriz()[0][2], fila0columna2);
+		}
+		else {
+			fila0columna2.setText("");
+			asignarColor(tablero.getMatriz()[0][2], fila0columna2);
+		}
+
+
+		if(tablero.getMatriz()[0][3].getValor()!=0) {
+			fila0columna3.setText(tablero.getMatriz()[0][3].getValor().toString());
+			asignarColor(tablero.getMatriz()[0][3], fila0columna3);
+		}
+		else {
+			fila0columna3.setText("");
+			asignarColor(tablero.getMatriz()[0][3], fila0columna3);
+		}
+
 		////FILA 1
-			
-			
-			if(tablero.getMatriz()[1][0].getValor()!=0) {
-				fila1columna0.setText(tablero.getMatriz()[1][0].getValor().toString());
-				asignarColor(tablero.getMatriz()[1][0], fila1columna0);
-			}
-			else {
-				fila1columna0.setText("");
-				asignarColor(tablero.getMatriz()[1][0], fila1columna0);
-			}
-			
-			if(tablero.getMatriz()[1][1].getValor()!=0) {
-				fila1columna1.setText(tablero.getMatriz()[1][1].getValor().toString());
-				asignarColor(tablero.getMatriz()[1][1], fila1columna1);
-			}
-			else {
-				fila1columna1.setText("");
-				asignarColor(tablero.getMatriz()[1][1], fila1columna1);
-			}
-			
-			if(tablero.getMatriz()[1][2].getValor()!=0) {
-				fila1columna2.setText(tablero.getMatriz()[1][2].getValor().toString());
-				asignarColor(tablero.getMatriz()[1][2], fila1columna2);
-			}
-			else {
-				fila1columna2.setText("");
-				asignarColor(tablero.getMatriz()[1][2], fila1columna2);
-			}
-			
-			if(tablero.getMatriz()[1][3].getValor()!=0) {
-				fila1columna3.setText(tablero.getMatriz()[1][3].getValor().toString());
-				asignarColor(tablero.getMatriz()[1][3], fila1columna3);
-			}
-			else {
-				fila1columna3.setText("");
-				asignarColor(tablero.getMatriz()[1][3], fila1columna3);
-			}
-			
-		////FILA 2
-			
-			if(tablero.getMatriz()[2][0].getValor()!=0) {
-				fila2columna0.setText(tablero.getMatriz()[2][0].getValor().toString());
-				asignarColor(tablero.getMatriz()[2][0], fila2columna0);
-			}
-			else {
-				fila2columna0.setText("");
-				asignarColor(tablero.getMatriz()[2][0], fila2columna0);
-			}
-			
-			if(tablero.getMatriz()[2][1].getValor()!=0) {
-				fila2columna1.setText(tablero.getMatriz()[2][1].getValor().toString());
-				asignarColor(tablero.getMatriz()[2][1], fila2columna1);
-			}
-			else {
-				fila2columna1.setText("");
-				asignarColor(tablero.getMatriz()[2][1], fila2columna1);
-			}
-			
-			if(tablero.getMatriz()[2][2].getValor()!=0) {
-				fila2columna2.setText(tablero.getMatriz()[2][2].getValor().toString());
-				asignarColor(tablero.getMatriz()[2][2], fila2columna2);
-			}
-			else {
-				fila2columna2.setText("");
-				asignarColor(tablero.getMatriz()[2][2], fila2columna2);
-			}
-			
-			if(tablero.getMatriz()[2][3].getValor()!=0) {
-				fila2columna3.setText(tablero.getMatriz()[2][3].getValor().toString());
-				asignarColor(tablero.getMatriz()[2][3], fila2columna3);
-			}
-			else {
-				fila2columna3.setText("");
-				asignarColor(tablero.getMatriz()[2][3], fila2columna3);
-			}
-			
-		////FILA 3	
-			
-			if(tablero.getMatriz()[3][0].getValor()!=0) {
-				fila3columna0.setText(tablero.getMatriz()[3][0].getValor().toString());
-				asignarColor(tablero.getMatriz()[3][0], fila3columna0);
-			}
-			else {
-				fila3columna0.setText("");
-				asignarColor(tablero.getMatriz()[3][0], fila3columna0);
-			}
-			
-			if(tablero.getMatriz()[3][1].getValor()!=0) {
-				fila3columna1.setText(tablero.getMatriz()[3][1].getValor().toString());
-				asignarColor(tablero.getMatriz()[3][1], fila3columna1);
-			}
-			else {
-				fila3columna1.setText("");
-				asignarColor(tablero.getMatriz()[3][1], fila3columna1);
-			}
-			
-			if(tablero.getMatriz()[3][2].getValor()!=0) {
-				fila3columna2.setText(tablero.getMatriz()[3][2].getValor().toString());
-				asignarColor(tablero.getMatriz()[3][2], fila3columna2);
-			}
-			else {
-				fila3columna2.setText("");
-				asignarColor(tablero.getMatriz()[3][2], fila3columna2);
-			}
-			
-			if(tablero.getMatriz()[3][3].getValor()!=0) {
-				fila3columna3.setText(tablero.getMatriz()[3][3].getValor().toString());
-				asignarColor(tablero.getMatriz()[3][3], fila3columna3);
-			}
-			else {
-				fila3columna3.setText("");
-				asignarColor(tablero.getMatriz()[3][3], fila3columna3);
-			}			
+
+
+		if(tablero.getMatriz()[1][0].getValor()!=0) {
+			fila1columna0.setText(tablero.getMatriz()[1][0].getValor().toString());
+			asignarColor(tablero.getMatriz()[1][0], fila1columna0);
 		}
+		else {
+			fila1columna0.setText("");
+			asignarColor(tablero.getMatriz()[1][0], fila1columna0);
+		}
+
+		if(tablero.getMatriz()[1][1].getValor()!=0) {
+			fila1columna1.setText(tablero.getMatriz()[1][1].getValor().toString());
+			asignarColor(tablero.getMatriz()[1][1], fila1columna1);
+		}
+		else {
+			fila1columna1.setText("");
+			asignarColor(tablero.getMatriz()[1][1], fila1columna1);
+		}
+
+		if(tablero.getMatriz()[1][2].getValor()!=0) {
+			fila1columna2.setText(tablero.getMatriz()[1][2].getValor().toString());
+			asignarColor(tablero.getMatriz()[1][2], fila1columna2);
+		}
+		else {
+			fila1columna2.setText("");
+			asignarColor(tablero.getMatriz()[1][2], fila1columna2);
+		}
+
+		if(tablero.getMatriz()[1][3].getValor()!=0) {
+			fila1columna3.setText(tablero.getMatriz()[1][3].getValor().toString());
+			asignarColor(tablero.getMatriz()[1][3], fila1columna3);
+		}
+		else {
+			fila1columna3.setText("");
+			asignarColor(tablero.getMatriz()[1][3], fila1columna3);
+		}
+
+		////FILA 2
+
+		if(tablero.getMatriz()[2][0].getValor()!=0) {
+			fila2columna0.setText(tablero.getMatriz()[2][0].getValor().toString());
+			asignarColor(tablero.getMatriz()[2][0], fila2columna0);
+		}
+		else {
+			fila2columna0.setText("");
+			asignarColor(tablero.getMatriz()[2][0], fila2columna0);
+		}
+
+		if(tablero.getMatriz()[2][1].getValor()!=0) {
+			fila2columna1.setText(tablero.getMatriz()[2][1].getValor().toString());
+			asignarColor(tablero.getMatriz()[2][1], fila2columna1);
+		}
+		else {
+			fila2columna1.setText("");
+			asignarColor(tablero.getMatriz()[2][1], fila2columna1);
+		}
+
+		if(tablero.getMatriz()[2][2].getValor()!=0) {
+			fila2columna2.setText(tablero.getMatriz()[2][2].getValor().toString());
+			asignarColor(tablero.getMatriz()[2][2], fila2columna2);
+		}
+		else {
+			fila2columna2.setText("");
+			asignarColor(tablero.getMatriz()[2][2], fila2columna2);
+		}
+
+		if(tablero.getMatriz()[2][3].getValor()!=0) {
+			fila2columna3.setText(tablero.getMatriz()[2][3].getValor().toString());
+			asignarColor(tablero.getMatriz()[2][3], fila2columna3);
+		}
+		else {
+			fila2columna3.setText("");
+			asignarColor(tablero.getMatriz()[2][3], fila2columna3);
+		}
+
+		////FILA 3	
+
+		if(tablero.getMatriz()[3][0].getValor()!=0) {
+			fila3columna0.setText(tablero.getMatriz()[3][0].getValor().toString());
+			asignarColor(tablero.getMatriz()[3][0], fila3columna0);
+		}
+		else {
+			fila3columna0.setText("");
+			asignarColor(tablero.getMatriz()[3][0], fila3columna0);
+		}
+
+		if(tablero.getMatriz()[3][1].getValor()!=0) {
+			fila3columna1.setText(tablero.getMatriz()[3][1].getValor().toString());
+			asignarColor(tablero.getMatriz()[3][1], fila3columna1);
+		}
+		else {
+			fila3columna1.setText("");
+			asignarColor(tablero.getMatriz()[3][1], fila3columna1);
+		}
+
+		if(tablero.getMatriz()[3][2].getValor()!=0) {
+			fila3columna2.setText(tablero.getMatriz()[3][2].getValor().toString());
+			asignarColor(tablero.getMatriz()[3][2], fila3columna2);
+		}
+		else {
+			fila3columna2.setText("");
+			asignarColor(tablero.getMatriz()[3][2], fila3columna2);
+		}
+
+		if(tablero.getMatriz()[3][3].getValor()!=0) {
+			fila3columna3.setText(tablero.getMatriz()[3][3].getValor().toString());
+			asignarColor(tablero.getMatriz()[3][3], fila3columna3);
+		}
+		else {
+			fila3columna3.setText("");
+			asignarColor(tablero.getMatriz()[3][3], fila3columna3);
+		}			
+	}
 }
 
 

@@ -30,6 +30,18 @@ public class Juego {
 			}	
 		}
 	}
+	
+	public boolean ganaElJuego()
+	{
+		boolean seEncontroUn2048 = false;
+		for (int fila =0 ; fila< tablero.getTamanoDeMatriz();fila++)
+			for (int columna =0 ; columna< tablero.getTamanoDeMatriz();columna++)
+				if (tablero.getMatriz()[fila][columna].getValor() == 2048)
+					seEncontroUn2048 = true;   
+		
+		return seEncontroUn2048;
+	}
+	
 	public boolean finDeJuego()
 	{
 		boolean sePuedeSumarCeldas = false;

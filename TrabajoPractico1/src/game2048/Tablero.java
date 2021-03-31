@@ -10,9 +10,9 @@ public class Tablero
  
 	public Tablero() 
 	{
-		matriz = new Celda[4][4];
+		matriz = new Celda[tamanoDeMatriz][tamanoDeMatriz];
 		
-		for (int fila = 0 ; fila< matriz.length;fila++)
+		for (int fila = 0 ; fila< tamanoDeMatriz;fila++)
 			for (int columna = 0 ; columna<matriz[fila].length;columna++)
 				matriz[fila][columna] = new Celda();
 	}

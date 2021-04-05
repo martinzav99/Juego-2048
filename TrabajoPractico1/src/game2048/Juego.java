@@ -42,7 +42,7 @@ public class Juego {
 		return seEncontroUn2048;
 	}
 	
-	public boolean finDeJuego()
+	public boolean pierdeElJuego()
 	{
 		boolean sePuedeSumarCeldas = false;
 		

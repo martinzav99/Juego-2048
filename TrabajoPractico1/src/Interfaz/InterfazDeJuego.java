@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class InterfazDeJuego {
 
@@ -86,7 +87,20 @@ public class InterfazDeJuego {
 		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(juego,this);
 		frame.addKeyListener(escuchaTeclado);
 		dibujarCeldas();
-		refrescarPantalla(juego.getTablero());
+		refrescarPantalla(juego); 
+	}
+	
+	public void estadoDeJuego(Juego juego)
+	{
+		if (juego.ganaElJuego())
+		{
+			JOptionPane.showMessageDialog(frame, "Ganaste");
+		}
+		
+		if (juego.pierdeElJuego())
+		{
+			JOptionPane.showMessageDialog(frame, "Perdiste");
+		}	
 	}
 	
 	public void dibujarCeldas()
@@ -233,8 +247,12 @@ public class InterfazDeJuego {
 
 	}
 
-	public void refrescarPantalla(Tablero tablero) 
+	public void refrescarPantalla(Juego juego) 
 	{
+		estadoDeJuego(juego);
+		
+		Tablero tablero =  juego.getTablero(); 
+		
 		////FILA 0
 		if(tablero.getMatriz()[0][0].getValor()!=0) {
 			fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());

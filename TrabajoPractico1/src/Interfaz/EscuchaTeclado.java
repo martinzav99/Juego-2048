@@ -27,23 +27,23 @@ public class EscuchaTeclado implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			this.juego.moverTodoArriba();
 			this.juego.ApareceOtro2();
-			interfaz.refrescarPantalla(this.juego.getTablero());
+			interfaz.refrescarPantalla(this.juego);
 
 	    }
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			this.juego.moverTodoAbajo();
 			this.juego.ApareceOtro2();
-			interfaz.refrescarPantalla(this.juego.getTablero());
+			interfaz.refrescarPantalla(this.juego);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			this.juego.moverTodoIzquierda();
 			this.juego.ApareceOtro2();
-			interfaz.refrescarPantalla(this.juego.getTablero());
+			interfaz.refrescarPantalla(this.juego);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			this.juego.moverTodoDerecha();
 			this.juego.ApareceOtro2();
-			interfaz.refrescarPantalla(this.juego.getTablero());
+			interfaz.refrescarPantalla(this.juego);
 		}	
 	}
 

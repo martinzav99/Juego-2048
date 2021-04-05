@@ -36,7 +36,7 @@ public class Juego {
 		boolean seEncontroUn2048 = false;
 		for (int fila =0 ; fila< tablero.getTamanoDeMatriz();fila++)
 			for (int columna =0 ; columna< tablero.getTamanoDeMatriz();columna++)
-				if (tablero.getMatriz()[fila][columna].getValor() == 2048)
+				if (tablero.getMatriz()[fila][columna].getValor() == 8)
 					seEncontroUn2048 = true;   
 		
 		return seEncontroUn2048;
@@ -44,7 +44,7 @@ public class Juego {
 	
 	public boolean pierdeElJuego()
 	{
-		boolean sePuedeSumarCeldas = false;
+		boolean noSePuedeSumarCeldas = true;
 		
 		for (int fila =0 ; fila < this.tablero.getTamanoDeMatriz() ;fila ++)
 		{
@@ -55,7 +55,7 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna+1].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila+1][columna].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -64,7 +64,7 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna-1].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila+1][columna].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -73,7 +73,7 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila-1][columna].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna+1].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -82,7 +82,7 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna-1].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila-1][columna].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -93,7 +93,7 @@ public class Juego {
 									this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna+1].getValor()||
 											this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila+1][columna].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -102,7 +102,7 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna-1].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila][columna+1].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 				
@@ -111,12 +111,12 @@ public class Juego {
 					if (this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila-1][columna].getValor() ||
 							this.tablero.getMatriz()[fila][columna].getValor() == this.tablero.getMatriz()[fila+1][columna].getValor())
 					{
-						sePuedeSumarCeldas = true;
+						noSePuedeSumarCeldas = false;
 					}
 				}
 			}		
 		}
-		return sePuedeSumarCeldas;
+		return noSePuedeSumarCeldas;
 	}
 
 	public Tablero getTablero() {

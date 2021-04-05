@@ -248,9 +248,7 @@ public class InterfazDeJuego {
 	}
 
 	public void refrescarPantalla(Juego juego) 
-	{
-		estadoDeJuego(juego);
-		
+	{		
 		Tablero tablero =  juego.getTablero(); 
 		
 		////FILA 0
@@ -404,7 +402,9 @@ public class InterfazDeJuego {
 		else {
 			fila3columna3.setText("");
 			asignarColor(tablero.getMatriz()[3][3], fila3columna3);
-		}			
+		}
+		
+		estadoDeJuego(juego);
 	}
 }
 

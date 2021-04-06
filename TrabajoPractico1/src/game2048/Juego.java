@@ -13,26 +13,40 @@ public class Juego {
 	
 	public void ApareceOtro2()
 	{
-		Boolean faltaColocar2o4 = true ;
-		while(faltaColocar2o4)
+		if (existeCeldaLibre()) 
 		{
-			int fila = (int) (Math.random()*4);
-			int columna = (int) (Math.random()*4);
-			double probabilidad = Math.random();
-			if (this.tablero.getMatriz()[fila][columna].estaVacio()) 
+			Boolean faltaColocar2o4 = true ;
+			while(faltaColocar2o4)
 			{
-				if (probabilidad<0.1) 
+				int fila = (int) (Math.random()*4);
+				int columna = (int) (Math.random()*4); 
+				double probabilidad = Math.random();
+				if (this.tablero.getMatriz()[fila][columna].estaVacio()) 
 				{
-					this.tablero.getMatriz()[fila][columna]= new Celda(4);
-					faltaColocar2o4 = false;
+					if (probabilidad<0.1) 
+					{
+						this.tablero.getMatriz()[fila][columna]= new Celda(4);
+						faltaColocar2o4 = false;
+					}	
+					else 
+					{
+						this.tablero.getMatriz()[fila][columna]= new Celda(2);
+						faltaColocar2o4 = false;
+					}		
 				}	
-				else 
-				{
-					this.tablero.getMatriz()[fila][columna]= new Celda(2);
-					faltaColocar2o4 = false;
-				}		
-			}	
+			}
 		}
+	}
+	
+	public boolean existeCeldaLibre()
+	{
+		boolean seEncontroCeldaVacia = false;
+		for (int fila =0 ; fila< tablero.getTamanoDeMatriz();fila++)
+			for (int columna =0 ; columna< tablero.getTamanoDeMatriz();columna++)
+				if (tablero.getMatriz()[fila][columna].estaVacio())
+					seEncontroCeldaVacia = true;
+		
+		return seEncontroCeldaVacia;
 	}
 	
 	public boolean ganaElJuego()

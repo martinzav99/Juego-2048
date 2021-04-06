@@ -7,6 +7,10 @@ public class Juego {
 		this.tablero = new Tablero();
 	}
 	
+	public Tablero getTablero() {
+		return tablero;
+	}
+	
 	public void ApareceOtro2()
 	{
 		Boolean faltaColocar2o4 = true ;
@@ -36,7 +40,7 @@ public class Juego {
 		boolean seEncontroUn2048 = false;
 		for (int fila =0 ; fila< tablero.getTamanoDeMatriz();fila++)
 			for (int columna =0 ; columna< tablero.getTamanoDeMatriz();columna++)
-				if (tablero.getMatriz()[fila][columna].getValor() == 8)
+				if (tablero.getMatriz()[fila][columna].getValor() == 32)
 					seEncontroUn2048 = true;   
 		
 		return seEncontroUn2048;
@@ -117,10 +121,6 @@ public class Juego {
 			}		
 		}
 		return noSePuedeSumarCeldas;
-	}
-
-	public Tablero getTablero() {
-		return tablero;
 	}
 	
 	public void moverTodoDerecha() 

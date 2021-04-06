@@ -6,7 +6,7 @@ public class Tablero
 {
 	private Celda [][] matriz;
 	private int tamanoDeMatriz = 4;
-	
+	private boolean estaLLeno = false;
  
 	public Tablero() 
 	{
@@ -28,7 +28,5 @@ public class Tablero
 	public int getTamanoDeMatriz() {
 		return tamanoDeMatriz;
 	}
-
-	
 
 }

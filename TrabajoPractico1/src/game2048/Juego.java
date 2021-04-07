@@ -61,79 +61,85 @@ public class Juego {
 	
 	public boolean pierdeElJuego()
 	{
-		boolean noSePuedeSumarCeldas = true;
-		
-		for (int fila =0 ; fila < tablero.getTamanoDeMatriz() ;fila ++)
+		if (!existeCeldaLibre())
 		{
-			for (int columna =0 ; columna < tablero.getTamanoDeMatriz() ;columna ++)
+			boolean noSePuedeSumarCeldas = true;
+			for (int fila =0 ; fila < tablero.getTamanoDeMatriz() ;fila ++)
 			{
-				if (fila ==0 && columna ==0)
+				for (int columna =0 ; columna < tablero.getTamanoDeMatriz() ;columna ++)
 				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+					if (fila ==0 && columna ==0)
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if (fila ==0 && columna ==3)
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+					
+					if (fila ==0 && columna ==3)
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if (fila ==3 && columna ==0)
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor())
+					
+					if (fila ==3 && columna ==0)
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if (fila ==3 && columna ==3)
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor())
+					
+					if (fila ==3 && columna ==3)
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if ((fila == 1 && (columna == 1 || columna == 2)) || (fila ==2 && (columna==1 || columna==2)))
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor()||
-									tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor()||
-											tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+					
+					if ((fila == 1 && (columna == 1 || columna == 2)) || (fila ==2 && (columna==1 || columna==2)))
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor()||
+										tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor()||
+												tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if ((fila == 0 && (columna == 1 || columna == 2)) || (fila ==3 && (columna==1 || columna==2)))
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor())
+					
+					if ((fila == 0 && (columna == 1 || columna == 2)) || (fila ==3 && (columna==1 || columna==2)))
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna-1].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila][columna+1].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-				
-				if (( (fila == 1 || fila== 2) && columna == 0) || ((fila == 1 || fila== 2) && columna == 3))
-				{
-					if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
-							tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+					
+					if (( (fila == 1 || fila== 2) && columna == 0) || ((fila == 1 || fila== 2) && columna == 3))
 					{
-						noSePuedeSumarCeldas = false;
+						if (tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila-1][columna].getValor() ||
+								tablero.getMatriz()[fila][columna].getValor() == tablero.getMatriz()[fila+1][columna].getValor())
+						{
+							noSePuedeSumarCeldas = false;
+						}
 					}
-				}
-			}		
+				}		
+			}
+			return noSePuedeSumarCeldas;
 		}
-		return noSePuedeSumarCeldas;
+		else
+		{
+			return false;
+		}
 	}
 	
 	public void moverTodoDerecha() 

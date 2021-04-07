@@ -253,7 +253,7 @@ public class InterfazDeJuego {
 		
 		////FILA 0
 		if(tablero.getMatriz()[0][0].getValor()!=0) {
-			fila0columna0.setText(tablero.getMatriz()[0][0].getValor().toString());
+			fila0columna0.setText(String.valueOf(tablero.getMatriz()[0][0].getValor()));
 			asignarColor(tablero.getMatriz()[0][0], fila0columna0);
 		}
 		else {
@@ -262,7 +262,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[0][1].getValor()!=0) {
-			fila0columna1.setText(tablero.getMatriz()[0][1].getValor().toString());
+			fila0columna1.setText(String.valueOf(tablero.getMatriz()[0][1].getValor()));
 			asignarColor(tablero.getMatriz()[0][1], fila0columna1);
 		}
 		else {
@@ -271,7 +271,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[0][2].getValor()!=0) {
-			fila0columna2.setText(tablero.getMatriz()[0][2].getValor().toString());
+			fila0columna2.setText(String.valueOf(tablero.getMatriz()[0][2].getValor()));
 			asignarColor(tablero.getMatriz()[0][2], fila0columna2);
 		}
 		else {
@@ -281,7 +281,7 @@ public class InterfazDeJuego {
 
 
 		if(tablero.getMatriz()[0][3].getValor()!=0) {
-			fila0columna3.setText(tablero.getMatriz()[0][3].getValor().toString());
+			fila0columna3.setText(String.valueOf(tablero.getMatriz()[0][3].getValor()));
 			asignarColor(tablero.getMatriz()[0][3], fila0columna3);
 		}
 		else {
@@ -293,7 +293,7 @@ public class InterfazDeJuego {
 
 
 		if(tablero.getMatriz()[1][0].getValor()!=0) {
-			fila1columna0.setText(tablero.getMatriz()[1][0].getValor().toString());
+			fila1columna0.setText(String.valueOf(tablero.getMatriz()[1][0].getValor()));
 			asignarColor(tablero.getMatriz()[1][0], fila1columna0);
 		}
 		else {
@@ -302,7 +302,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[1][1].getValor()!=0) {
-			fila1columna1.setText(tablero.getMatriz()[1][1].getValor().toString());
+			fila1columna1.setText(String.valueOf(tablero.getMatriz()[1][1].getValor()));
 			asignarColor(tablero.getMatriz()[1][1], fila1columna1);
 		}
 		else {
@@ -311,7 +311,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[1][2].getValor()!=0) {
-			fila1columna2.setText(tablero.getMatriz()[1][2].getValor().toString());
+			fila1columna2.setText(String.valueOf(tablero.getMatriz()[1][2].getValor()));
 			asignarColor(tablero.getMatriz()[1][2], fila1columna2);
 		}
 		else {
@@ -320,7 +320,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[1][3].getValor()!=0) {
-			fila1columna3.setText(tablero.getMatriz()[1][3].getValor().toString());
+			fila1columna3.setText(String.valueOf(tablero.getMatriz()[1][3].getValor()));
 			asignarColor(tablero.getMatriz()[1][3], fila1columna3);
 		}
 		else {
@@ -331,7 +331,7 @@ public class InterfazDeJuego {
 		////FILA 2
 
 		if(tablero.getMatriz()[2][0].getValor()!=0) {
-			fila2columna0.setText(tablero.getMatriz()[2][0].getValor().toString());
+			fila2columna0.setText(String.valueOf(tablero.getMatriz()[2][0].getValor()));
 			asignarColor(tablero.getMatriz()[2][0], fila2columna0);
 		}
 		else {
@@ -340,7 +340,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[2][1].getValor()!=0) {
-			fila2columna1.setText(tablero.getMatriz()[2][1].getValor().toString());
+			fila2columna1.setText(String.valueOf(tablero.getMatriz()[2][1].getValor()));
 			asignarColor(tablero.getMatriz()[2][1], fila2columna1);
 		}
 		else {
@@ -349,7 +349,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[2][2].getValor()!=0) {
-			fila2columna2.setText(tablero.getMatriz()[2][2].getValor().toString());
+			fila2columna2.setText(String.valueOf(tablero.getMatriz()[2][2].getValor()));
 			asignarColor(tablero.getMatriz()[2][2], fila2columna2);
 		}
 		else {
@@ -358,7 +358,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[2][3].getValor()!=0) {
-			fila2columna3.setText(tablero.getMatriz()[2][3].getValor().toString());
+			fila2columna3.setText(String.valueOf(tablero.getMatriz()[2][3].getValor()));
 			asignarColor(tablero.getMatriz()[2][3], fila2columna3);
 		}
 		else {
@@ -369,7 +369,7 @@ public class InterfazDeJuego {
 		////FILA 3	
 
 		if(tablero.getMatriz()[3][0].getValor()!=0) {
-			fila3columna0.setText(tablero.getMatriz()[3][0].getValor().toString());
+			fila3columna0.setText(String.valueOf(tablero.getMatriz()[3][0].getValor()));
 			asignarColor(tablero.getMatriz()[3][0], fila3columna0);
 		}
 		else {
@@ -378,7 +378,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[3][1].getValor()!=0) {
-			fila3columna1.setText(tablero.getMatriz()[3][1].getValor().toString());
+			fila3columna1.setText(String.valueOf(tablero.getMatriz()[3][1].getValor()));
 			asignarColor(tablero.getMatriz()[3][1], fila3columna1);
 		}
 		else {
@@ -387,7 +387,7 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[3][2].getValor()!=0) {
-			fila3columna2.setText(tablero.getMatriz()[3][2].getValor().toString());
+			fila3columna2.setText(String.valueOf(tablero.getMatriz()[3][2].getValor()));
 			asignarColor(tablero.getMatriz()[3][2], fila3columna2);
 		}
 		else {
@@ -396,14 +396,13 @@ public class InterfazDeJuego {
 		}
 
 		if(tablero.getMatriz()[3][3].getValor()!=0) {
-			fila3columna3.setText(tablero.getMatriz()[3][3].getValor().toString());
+			fila3columna3.setText(String.valueOf(tablero.getMatriz()[3][3].getValor()));
 			asignarColor(tablero.getMatriz()[3][3], fila3columna3);
 		}
 		else {
 			fila3columna3.setText("");
 			asignarColor(tablero.getMatriz()[3][3], fila3columna3);
 		}
-		
 		estadoDeJuego(juego);
 	}
 }

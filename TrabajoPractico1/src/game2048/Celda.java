@@ -3,7 +3,7 @@ package game2048;
 
 public class Celda 
 {
-	private Integer valor;
+	private int valor;
 		
 	public Celda()
 	{
@@ -39,12 +39,12 @@ public class Celda
 		}
 	}
 	
-	public Integer getValor() 
+	public int getValor() 
 	{
 		return valor;
 	}
 
-	public void setValor(Integer valor) 
+	public void setValor(int valor) 
 	{
 		this.valor = valor;
 	}

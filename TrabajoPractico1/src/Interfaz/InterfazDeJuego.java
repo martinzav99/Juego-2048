@@ -81,7 +81,9 @@ public class InterfazDeJuego {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setFocusable(true);
 		Juego juego = new Juego();
+		juego.setSeModificoTablero(true);
 		juego.ApareceOtro2();
+		juego.setSeModificoTablero(true);
 		juego.ApareceOtro2();
 		frame.getContentPane().setLayout(null);
 		EscuchaTeclado escuchaTeclado = new EscuchaTeclado(juego,this);

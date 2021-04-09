@@ -96,8 +96,14 @@ public class InterfazDeJuego {
 	{
 		if (juego.ganaElJuego())
 		{
-			JOptionPane.showMessageDialog(frame, "Ganaste");
+			int eleccion = JOptionPane.showConfirmDialog(
+					frame,
+					"Ganaste, Presiona SI para cerrar",
+					null,
+					JOptionPane.OK_OPTION);
 			
+			if (eleccion == JOptionPane.OK_OPTION)
+				System.exit(0);
 		}
 		
 		if (juego.pierdeElJuego())
@@ -106,10 +112,9 @@ public class InterfazDeJuego {
 					frame,
 					"Perdiste , presiona SI para cerrar",
 					null,
-					JOptionPane.YES_NO_CANCEL_OPTION,
-					JOptionPane.QUESTION_MESSAGE);
+					JOptionPane.OK_OPTION);
 			
-			if (opcion == JOptionPane.YES_OPTION)
+			if (opcion == JOptionPane.OK_OPTION)
 				System.exit(0);			
 		}	
 	}

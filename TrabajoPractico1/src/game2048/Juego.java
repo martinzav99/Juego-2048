@@ -66,7 +66,7 @@ public class Juego {
 		boolean seEncontroUn2048 = false;
 		for (int fila =0 ; fila< tablero.getTamanoDeMatriz();fila++)
 			for (int columna =0 ; columna< tablero.getTamanoDeMatriz();columna++)	
-				if (tablero.getMatriz()[fila][columna].getValor() == 256)
+				if (tablero.getMatriz()[fila][columna].getValor() == 64)
 					seEncontroUn2048 = true;   	
 		return seEncontroUn2048;
 	}

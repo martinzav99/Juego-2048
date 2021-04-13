@@ -181,7 +181,6 @@ public class Juego {
 								
 								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 								{
-									System.out.println("entro derecha");
 									bordeDerecho--;
 									columna++;
 								}
@@ -227,7 +226,6 @@ public class Juego {
 								
 								if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 								{
-									System.out.println("entro izquierda");
 									bordeIzquierdo++; 
 									columna--;
 								}
@@ -270,7 +268,6 @@ public class Juego {
 							
 							if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 							{
-								System.out.println("entro abajo");
 								bordeInferior--;
 								fila++;
 							}
@@ -313,7 +310,6 @@ public class Juego {
 							
 							if (auxValorCeldaBorde!=0 && suma == auxValorOtraCelda*2 )
 							{
-								System.out.println("entro arriba");
 								bordeSuperior++;
 								fila--;
 							}
